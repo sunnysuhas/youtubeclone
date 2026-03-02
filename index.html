@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>YouTube — Dark Clone (Upgraded)</title>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<header class="topbar">
+			<div class="topbar-left">
+				<button id="hamburger" class="icon-btn" aria-label="Toggle menu">
+					<span class="material-icons">menu</span>
+				</button>
+				<a class="logo" href="#" aria-label="YouTube Home">
+					<span class="yt-play" aria-hidden="true">
+						<svg viewBox="0 0 24 24" width="20" height="20" fill="#FF0000"><path d="M10 8.5v7l6-3.5z"/></svg>
+					</span>
+					<span class="logo-text">YouTube</span>
+				</a>
+			</div>
+
+			<div class="topbar-center">
+				<div class="search" role="search">
+					<input id="searchInput" type="search" placeholder="Search" aria-label="Search" />
+					<button id="searchBtn" class="icon-btn ripple"><span class="material-icons">search</span></button>
+					<button id="voiceBtn" class="icon-btn ripple voice"><span class="material-icons">mic</span></button>
+				</div>
+			</div>
+
+			<div class="topbar-right">
+				<button id="themeToggle" class="icon-btn ripple" title="Toggle theme">
+					<span class="material-icons">dark_mode</span>
+				</button>
+				<button class="icon-btn ripple" title="Create">
+					<span class="material-icons">add_circle_outline</span>
+				</button>
+				<div class="notif-wrap">
+					<button class="icon-btn ripple" id="notifBtn" title="Notifications">
+						<span class="material-icons">notifications_none</span>
+					</button>
+					<div id="notifBadge" class="notif-badge">9+</div>
+					<div id="notifPanel" class="dropdown-panel hidden">
+						<div class="dropdown-item">No new notifications</div>
+					</div>
+				</div>
+				<div class="avatar-wrap">
+					<button id="profileBtn" class="avatar icon-btn ripple" aria-label="Account">
+						<img src="https://i.pravatar.cc/48?img=12" alt="avatar">
+					</button>
+					<div id="profilePanel" class="dropdown-panel hidden">
+						<div class="dropdown-item">Your Channel</div>
+						<div class="dropdown-item">Settings</div>
+						<div class="dropdown-item">Logout</div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<div class="container">
+			<aside class="sidebar" id="sidebar">
+				<nav class="nav-section">
+					<ul>
+						<li class="active"><span class="material-icons">home</span><span class="nav-text">Home</span></li>
+						<li><span class="material-icons">theaters</span><span class="nav-text">Shorts</span></li>
+						<li><span class="material-icons">subscriptions</span><span class="nav-text">Subscriptions</span></li>
+					</ul>
+				</nav>
+
+				<div class="nav-section subs">
+					<h4>Subscriptions</h4>
+					<ul>
+						<li>
+							<img class="chan-thumb" src="https://i.pravatar.cc/40?img=3" alt="ch">
+							<span class="nav-text">Telugu Channel</span>
+							<span class="live">LIVE</span>
+						</li>
+						<li>
+							<img class="chan-thumb" src="https://i.pravatar.cc/40?img=5" alt="ch">
+							<span class="nav-text">Code Academy</span>
+						</li>
+						<li>
+							<img class="chan-thumb" src="https://i.pravatar.cc/40?img=7" alt="ch">
+							<span class="nav-text">Music Beats</span>
+						</li>
+					</ul>
+				</div>
+
+				<nav class="nav-section">
+					<ul>
+						<li><span class="material-icons">person</span><span class="nav-text">You</span></li>
+						<li><span class="material-icons">history</span><span class="nav-text">History</span></li>
+						<li><span class="material-icons">playlist_play</span><span class="nav-text">Playlists</span></li>
+						<li><span class="material-icons">watch_later</span><span class="nav-text">Watch later</span></li>
+					</ul>
+				</nav>
+			</aside>
+
+			<main class="content">
+				<div class="category-bar" id="categoryBar">
+					<div class="cat-btn active" data-cat="All">All</div>
+					<div class="cat-btn" data-cat="Music">Music</div>
+					<div class="cat-btn" data-cat="Tamil Cinema">Tamil Cinema</div>
+					<div class="cat-btn" data-cat="Web series">Web series</div>
+					<div class="cat-btn" data-cat="Gaming">Gaming</div>
+					<div class="cat-btn" data-cat="Data Structures">Data Structures</div>
+					<div class="cat-btn" data-cat="Telugu cinema">Telugu cinema</div>
+					<div class="cat-btn" data-cat="Computer programming">Computer programming</div>
+					<div class="cat-btn" data-cat="Mixes">Mixes</div>
+					<div class="cat-btn" data-cat="Live">Live</div>
+					<div class="cat-btn" data-cat="Free Fire MAX">Free Fire MAX</div>
+					<div class="cat-btn" data-cat="Asian movies">Asian movies</div>
+				</div>
+
+				<section class="grid" id="videoGrid" aria-live="polite">
+					<!-- Videos rendered by JS -->
+				</section>
+
+				<div id="noResults" class="no-results hidden">No results found</div>
+			</main>
+
+			<aside class="right-rail">
+				<div class="sponsored">
+					<div class="spon-brand">
+						<img src="https://i.pravatar.cc/64?img=10" alt="brand">
+					</div>
+					<div class="spon-content">
+						<h4>Join Our Developer Community</h4>
+						<p class="muted">Sponsored</p>
+						<button class="join ripple">Join Us</button>
+					</div>
+				</div>
+			</aside>
+		</div>
+
+		<!-- Mobile bottom nav -->
+		<nav class="bottom-nav" id="bottomNav">
+			<button class="bn-btn"><span class="material-icons">home</span><span>Home</span></button>
+			<button class="bn-btn"><span class="material-icons">search</span><span>Explore</span></button>
+			<button class="bn-btn"><span class="material-icons">video_library</span><span>Shorts</span></button>
+			<button class="bn-btn"><span class="material-icons">subscriptions</span><span>Subs</span></button>
+			<button class="bn-btn"><span class="material-icons">library_music</span><span>Library</span></button>
+		</nav>
+
+		<!-- Modal / Player overlay -->
+		<div id="playerModal" class="modal hidden" role="dialog" aria-modal="true">
+			<div class="modal-backdrop"></div>
+			<div class="modal-body">
+				<button id="modalClose" class="modal-close material-icons">close</button>
+				<div class="player-frame">
+					<iframe id="playerFrame" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="Video player"></iframe>
+				</div>
+				<h3 id="modalTitle"></h3>
+			</div>
+		</div>
+
+		<script src="script.js" defer></script>
+	</body>
+</html>
+
